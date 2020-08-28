@@ -10,10 +10,73 @@
 .header {
   padding: 20px;
   background-color: rgb(214, 29, 214);
+  margin-bottom:  100px;
   color: white;
   text-align: left;
   font-weight: 900;
   font-size: large;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.segment-dashboard {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.segment-container-1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.segment-container-2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.segment-slide { 
+  border-radius: 25px;
+  border: 2px solid rgb(214, 29, 214);
+  padding: 20px;
+}
+
+.segment-slide-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+.segment-card-text { 
+  margin: auto;
+  vertical-align: bottom;
+  width: 250px;
+  height: 40px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(214, 29, 214);
+}
+
+.segment-card-text:hover {
+  transition-duration: 0.5s;
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 @media (prefers-reduced-motion: no-preference) {

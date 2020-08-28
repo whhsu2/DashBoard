@@ -1,14 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Header from './components/Header'
-import DashBoard from './components/DashBoard';
+import Campaign from './components/Campaign'
+import SegmentDashBoard from './components/Segment_DashBoard'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <DashBoard/>
+      <Router>
+        <Switch>
+          <Route path='/segment'>
+            <SegmentDashBoard />
+          </Route>
+          <Route path='/'>
+            <Campaign />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

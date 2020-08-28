@@ -34,7 +34,7 @@ class Timeline extends Component {
         .y(d => y(+d.value))
 
     const node = this.node
-    var margin = ({top: 20, right: 30, bottom: 30, left: 40})
+    var margin = ({top: 40, right: 30, bottom: 30, left: 60})
     var width = select(node).attr("width") - margin.left - margin.right;
     var height = select(node).attr("height") - margin.bottom - margin.top;
     
@@ -117,14 +117,42 @@ class Timeline extends Component {
             currency: "USD"
             });    
     }
+    select(node)
+        .append('g')
+        .append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 + (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "20px")
+        .style('color', 'black') 
+        .style("text-decoration", "underline")  
+        .text("MAB campaign success rate over time");
 
     select(node)
         .append("g")
         .call(xAxis);
+
+    select(node)
+        .append("text")             
+        .attr("transform",
+              "translate(" + (width/2) + " ," + 
+                             (height + 10 ) + ")")
+        .style("text-anchor", "middle")
+        .text("Date");
     
     select(node)
         .append("g")
         .call(yAxis);
+
+    select(node)
+        .append('text')
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 )
+        .attr("x",0 - (height / 2))
+        .attr('fill', 'black')
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Percentages");   
     
     select(node)
         .append("path")
@@ -135,7 +163,7 @@ class Timeline extends Component {
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("d", line);
-  
+        
     const tooltip = select(node).append("g");
   
     select(node).on("touchmove mousemove", function() {
@@ -151,9 +179,11 @@ class Timeline extends Component {
 
 
   render(){
-    return <svg ref={node => this.node = node}
-    width={1200} height={500}>
-    </svg>
+    return ( 
+      <svg className="timeline" ref={node => this.node = node}
+      width={800} height={500}>
+      </svg>
+    )
   }
 }
 

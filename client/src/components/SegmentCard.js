@@ -1,9 +1,16 @@
 import React from 'react'
+import {
+    Link
+  } from "react-router-dom";
 
 class SegmentCard extends React.Component { 
     render() {
         return (
-            <div className="header">MAB Dashboard</div>
+            <div >
+                <Link to='/segment'>
+                    <button className="segment-card-text">Segment Id: {this.props.id}, Open Rate: 10%</button>
+                </Link>
+            </div>
         )
     }
 }
