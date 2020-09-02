@@ -7,7 +7,7 @@ class SegmentCard extends React.Component {
     render() {
         return (
             <div >
-                <Link to='/segment'>
+                <Link to={`/segment/${this.props.id}`}>
                     <button className="segment-card-text">Segment Id: {this.props.id}, Open Rate: 10%</button>
                 </Link>
             </div>

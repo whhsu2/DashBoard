@@ -18,7 +18,7 @@ class SegmentSlide extends React.Component {
         const tmp_list_of_segments = [1,2,3,4]
         return (
             <div className="segment-slide">
-                <div className="segment-slide-title"> Segment Open Rates</div>
+                <div className="segment-slide-title">Segment Open Rates</div>
                 <hr className="solid"></hr>
                 {this.getListofSegments(tmp_list_of_segments)}
             </div>

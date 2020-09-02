@@ -14,13 +14,10 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <Switch>
-          <Route path='/segment'>
-            <SegmentDashBoard />
-          </Route>
-          <Route path='/'>
-            <Campaign />
-          </Route>
+          <Route path='/segment/:id' component={SegmentDashBoard} />
+          <Route path='/' component={Campaign} />
         </Switch>
       </Router>
     </div>
