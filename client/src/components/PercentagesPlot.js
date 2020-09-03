@@ -20,9 +20,9 @@ class PercentagePlot extends Component {
   async drawChart() {
     let currentOpacity;
     const node = this.node
-    var margin = {top: 10, right: 100, bottom: 30, left: 30};
-    var width = 800 - margin.left - margin.right;
-    var height = 400 - margin.top - margin.bottom;
+    var margin = {top: 10, right: 10, bottom: 30, left: 100};
+    var width =  select(node).attr("width") - margin.left - margin.right;
+    var height =  select(node).attr("height") - margin.top - margin.bottom;
 
     select(node)
         .append("svg")
@@ -34,10 +34,7 @@ class PercentagePlot extends Component {
 
 
 
-//Read the data
     var data = await d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_connectedscatter.csv", d3.autoType)
-    console.log(data)
-
     var allGroup = ["valueA", "valueB", "valueC"]
     // Reformat the data: we need an array of arrays of {x, y} tuples
     var dataReady = allGroup.map( function(grpName) { 
@@ -68,6 +65,7 @@ class PercentagePlot extends Component {
       .range([ height, 0 ]);
     select(node).append("g")
       .call(d3.axisLeft(y));
+      
 
     // Add the lines
     var line = d3.line()
@@ -142,7 +140,7 @@ class PercentagePlot extends Component {
   render(){
     return ( 
       <svg className="percentage-plot" ref={node => this.node = node}
-      width={600} height={450}>
+      width={800} height={450}>
       </svg>
     )
   }
